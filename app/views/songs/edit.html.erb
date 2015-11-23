@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @song.errors.any? %>
+  <% @song.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Song #<%= @song.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_song/<%= @song.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for song_name -->
+      <div class="form-group">
+        <label for="song_name" class="control-label">
+          Song name
+        </label>
+
+        <input type="text" id="song_name" name="song_name" placeholder="Song name" class="form-control" value="<%= @song.song_name %>">
+      </div>
+
+      <!-- Label and input for artist -->
+      <div class="form-group">
+        <label for="artist" class="control-label">
+          Artist
+        </label>
+
+        <input type="text" id="artist" name="artist" placeholder="Artist" class="form-control" value="<%= @song.artist %>">
+      </div>
+
+      <!-- Label and input for song_url -->
+      <div class="form-group">
+        <label for="song_url" class="control-label">
+          Song url
+        </label>
+
+        <input type="text" id="song_url" name="song_url" placeholder="Song url" class="form-control" value="<%= @song.song_url %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Song
+      </button>
+      or
+      <a href="/songs/<%= @song.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

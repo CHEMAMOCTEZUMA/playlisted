@@ -1,0 +1,44 @@
+<!-- Validation failure messages -->
+<% if @selection.errors.any? %>
+<% @selection.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Selection</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_selection" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for icon_id -->
+      <div class="form-group">
+        <label for="icon_id" class="control-label">
+          Icon
+        </label>
+        <%= select_tag(:icon_id, options_from_collection_for_select(Icon.all, :id, :icon_name, @selection.icon_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for song_id -->
+      <div class="form-group">
+        <label for="song_id" class="control-label">
+          Song
+        </label>
+        <%= select_tag(:song_id, options_from_collection_for_select(Song.all, :id, :song_name, @selection.song_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-success">
+        Create Selection
+      </button>
+      or
+      <a href="/selections">Cancel</a>
+    </form>
+  </div>
+</div>

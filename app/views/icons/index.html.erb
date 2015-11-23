@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Icons
+    <a href="/icons/new" class="btn btn-lg btn-success">New Icon</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Icon name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @icons.each do |icon| %>
+      <tr>
+        <td><%= icon.icon_name %></td>
+        <td>
+          <a href="/icons/<%= icon.id %>" class="btn btn-primary">Show</a>
+          <a href="/icons/<%= icon.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_icon/<%= icon.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
