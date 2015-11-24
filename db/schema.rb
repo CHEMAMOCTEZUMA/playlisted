@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123014727) do
+ActiveRecord::Schema.define(version: 20151124005904) do
 
   create_table "icons", force: :cascade do |t|
     t.string   "icon_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "selections", force: :cascade do |t|

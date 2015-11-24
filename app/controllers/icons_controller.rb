@@ -14,6 +14,7 @@ class IconsController < ApplicationController
   def create
     @icon = Icon.new
     @icon.icon_name = params[:icon_name]
+    @icon.image = params[:image]
 
     if @icon.save
       redirect_to "/icons", :notice => "Icon created successfully."
@@ -30,6 +31,7 @@ class IconsController < ApplicationController
     @icon = Icon.find(params[:id])
 
     @icon.icon_name = params[:icon_name]
+    @icon.image = params[:image]
 
     if @icon.save
       redirect_to "/icons", :notice => "Icon updated successfully."

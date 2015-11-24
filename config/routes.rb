@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Routes for the Selection resource:
-  get "/", :controller => "icons", :action => "index"
+  get "/", :controller => "users", :action => "index"
 
   # CREATE
   get "/selections/new", :controller => "selections", :action => "new"
