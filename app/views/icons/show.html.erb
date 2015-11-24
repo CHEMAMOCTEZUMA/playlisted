@@ -1,28 +1,21 @@
 <div class="page-header">
-  <h3>Icon #<%= @icon.id %></h3>
+  <h3><%= @icon.icon_name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Icon name</dt>
-      <dd><%= @icon.icon_name %></dd>
 
-      <dt>Image</dt>
-      <dd><img src="<%= @icon.image %>" class="img-responsive" width="200"></dd>
+      <% @selections.each do |select| %> 
+      <%= raw select.song.song_url %>
+      <% end %>
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/icons" class="btn btn-primary">
+      <a href="/" class="btn btn-danger">
         Back
       </a>
-      <a href="/icons/<%= @icon.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_icon/<%= @icon.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+   </div>
   </div>
 </div>

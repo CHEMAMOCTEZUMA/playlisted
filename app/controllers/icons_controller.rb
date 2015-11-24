@@ -5,6 +5,7 @@ class IconsController < ApplicationController
 
   def show
     @icon = Icon.find(params[:id])
+    @selections = @icon.selections
   end
 
   def new
