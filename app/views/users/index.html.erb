@@ -5,9 +5,10 @@
 </div>
 
 <div class="container">
+<div class="row">
   <% @icons.each do |icon| %>
 
-  <div class="row">
+  <div class="col-md-2">
     <div class="well">
       <a href="/icons/<%= icon.id %>" class="thumbnail"> 
         <img src="<%= icon.image %>" class="img-responsive" width="100">
@@ -15,4 +16,5 @@
     </div> 
   </div>  
   <% end %>
+</div>
 </div>  
