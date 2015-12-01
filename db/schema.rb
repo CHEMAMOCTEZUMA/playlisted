@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124005904) do
+ActiveRecord::Schema.define(version: 20151201203725) do
 
   create_table "icons", force: :cascade do |t|
     t.string   "icon_name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20151124005904) do
     t.string   "song_name"
     t.string   "artist"
     t.string   "song_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string   "url"
+    t.string   "aritst"
+    t.string   "song_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
