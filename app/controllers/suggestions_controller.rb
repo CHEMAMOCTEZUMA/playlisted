@@ -5,6 +5,18 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+
+    @song = Song.new
+    @song.song_name = params[:song_name]
+    @song.artist = params[:artist]
+    @song.song_url = params[:song_url]
+
+    if @song.save
+      redirect_to "/songs", :notice => "Song created successfully."
+    else
+      render 'new'
+    end
+
   end
 
   def new

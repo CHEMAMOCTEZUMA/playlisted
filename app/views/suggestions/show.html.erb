@@ -1,31 +1,55 @@
+<!-- Validation failure messages -->
+<% if @song.errors.any? %>
+  <% @song.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
 <div class="page-header">
-  <h3>Suggestion #<%= @suggestion.id %></h3>
+  <h3>Add Song</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <dl class="dl-horizontal">
-      <dt>Url</dt>
-      <dd><%= @suggestion.url %></dd>
+    <form action="/create_song" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <dt>Aritst</dt>
-      <dd><%= @suggestion.aritst %></dd>
+      <!-- Label and input for song_name -->
+      <div class="form-group">
+        <label for="song_name" class="control-label">
+          Song name
+        </label>
 
-      <dt>Song name</dt>
-      <dd><%= @suggestion.song_name %></dd>
+        <input type="text" id="song_name" name="song_name" placeholder="Song name" class="form-control" value="<%= @suggestion.song_name %>">
+      </div>
 
-    </dl>
+      <!-- Label and input for artist -->
+      <div class="form-group">
+        <label for="artist" class="control-label">
+          Artist
+        </label>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/suggestions" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/suggestions/<%= @suggestion.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_suggestion/<%= @suggestion.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+        <input type="text" id="artist" name="artist" placeholder="Artist" class="form-control" value="<%= @suggestion.artist %>">
+      </div>
+
+      <!-- Label and input for song_url -->
+      <div class="form-group">
+        <label for="song_url" class="control-label">
+          Song url
+        </label>
+
+        <input type="text" id="song_url" name="song_url" placeholder="Song url" class="form-control" value="<%= @suggestion.song_url %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Song
+      </button>
+      or
+      <a href="/songs">Cancel</a>
+    </form>
   </div>
 </div>
