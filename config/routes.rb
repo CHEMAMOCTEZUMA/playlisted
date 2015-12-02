@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # READ
   get "/suggestions", :controller => "suggestions", :action => "index"
   get "/suggestions/:id", :controller => "suggestions", :action => "show"
+  post "/accept_suggestion", :controller => "suggestions", :action => "accept"
 
   # UPDATE
   get "/suggestions/:id/edit", :controller => "suggestions", :action => "edit"

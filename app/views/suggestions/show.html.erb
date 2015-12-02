@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_song" method="post">
+    <form action="/accept_suggestion" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -33,7 +33,7 @@
           Artist
         </label>
 
-        <input type="text" id="artist" name="artist" placeholder="Artist" class="form-control" value="<%= @suggestion.artist %>">
+        <input type="text" id="artist" name="artist" placeholder="Artist" class="form-control" value="<%= @suggestion.aritst %>">
       </div>
 
       <!-- Label and input for song_url -->
@@ -42,7 +42,7 @@
           Song url
         </label>
 
-        <input type="text" id="song_url" name="song_url" placeholder="Song url" class="form-control" value="<%= @suggestion.song_url %>">
+        <input type="text" id="song_url" name="song_url" placeholder="Song url" class="form-control" value="<%= @suggestion.url %>">
       </div>
 
       <button class="btn btn-success">
