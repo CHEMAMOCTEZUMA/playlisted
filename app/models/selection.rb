@@ -1,6 +1,6 @@
 class Selection < ActiveRecord::Base
 
-	validates :icon_id, :presence => true
+	validates :icon_id, :presence => true, :uniqueness => { :scope => :song_id }
 	validates :song_id, :presence => true
 
 
