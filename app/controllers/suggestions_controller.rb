@@ -32,7 +32,7 @@ class SuggestionsController < ApplicationController
     @suggestion.song_name = params[:song_name]
 
     if @suggestion.save
-      redirect_to "/suggestions", :notice => "Suggestion created successfully."
+      redirect_to "/", :notice => "Suggestion created successfully."
     else
       render 'new'
     end
@@ -50,7 +50,7 @@ class SuggestionsController < ApplicationController
     @suggestion.song_name = params[:song_name]
 
     if @suggestion.save
-      redirect_to "/suggestions", :notice => "Suggestion updated successfully."
+      redirect_to :back, :notice => "Suggestion updated successfully."
     else
       render 'edit'
     end
